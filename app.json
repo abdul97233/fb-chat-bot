@@ -25,7 +25,11 @@
             "description": "value",
             "required": "True",
             "value": "/app/.apt/usr/bin/google-chrome"
-        }
+        },
+            "session_cookies": {
+                "description": "put your fb cookies here",
+                "required": "True"
+            }
     },
     "stack": "heroku-20",
     "buildpacks": [
