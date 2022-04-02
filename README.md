@@ -12,7 +12,7 @@ Getting Started with fb-chat-bot
 ### If u want to work bot even after fb logout.. just follow these steps:  
 ### >> open private/incognito window and login facebook..
 ### >> get cookie editor extension and allow the extension in private/incognito mode
-### >> get xs value from cookie editor and enter that xs value in fb-chat-bot.py instead of regular window xs value shown in video
+### >> get xs value from cookie editor and enter that xs value in fb-chat-bot.py instead of regular window
 ### >> and close the incognito window (do not logout)
 
 ## Disclaimer! Not responsible if any damage is done to your fb account  
