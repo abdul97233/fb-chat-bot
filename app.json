@@ -42,7 +42,10 @@
         },
         {
             "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
-        }
+        },
+    {
+      "url": "heroku/python"
+    }
     ],
     "formation": {
         "worker": {
