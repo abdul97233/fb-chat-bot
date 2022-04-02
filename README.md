@@ -91,6 +91,6 @@ Note: dont forget to provide initial keyword like find, solve, calculate, evalua
 
 ### 🔷 Credits : 
 
-- [Raween)](https://t.me/abdul97233)
-- [Abdul)](https://t.me/abdul97233)
+- [Raween](https://t.me/abdul97233)
+- [Abdul](https://t.me/abdul97233)
 - [Abdul](https://github.com/abdul97233)
