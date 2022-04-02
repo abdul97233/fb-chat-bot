@@ -4,6 +4,8 @@
 
 ### Simple Method 
 
+## `Star and fork the repo Before deploying`
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abdul97233/fb-chat-bot-heroku)
 
 ##
@@ -13,6 +15,12 @@
 [![Bot Support](https://img.shields.io/badge/Fb%20Chat%20Bot-support%20group-blue)](https://t.me/ntmchat)
 [![Telegram Channel](https://img.shields.io/badge/Telegram-Channel-blue.svg)](https://t.me/ntmpro)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/abdul97233/fb-chat-bot-heroku)
+
+ <p>
+ <a href="https://github.com/abdul97233/fb-chat-bot-heroku/issues">Report a Bug</a>
+    |
+    <a href="https://github.com/abdul97233/fb-chat-bot-heroku/issues">Request Feature</a>
+  </p>
 
 # fb-chat-bot
 
@@ -129,4 +137,4 @@ Same goes if they send image and unsend it.. You can view the unsent images imme
 
 - [Rawbeen](https://t.me/abdul97233)
 - [Abdul](https://t.me/abdul97233)
-- [Abdul](https://github.com/abdul97233)
+- [Github](https://github.com/abdul97233)
