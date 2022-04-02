@@ -701,12 +701,13 @@ class ChatBot(Client):
 
 
 cookies = {
-     "sb": "xasyYmAoy1tRpMGYvLxgkHBF",
+    "sb": "xasyYmAoy1tRpMGYvLxgkHBF",
     "fr": "0vFCSltfbfGjdnSzW.AWWRdpp80kfgbsfmIZJalTHIYMc.BiR98x.Iu.AAA.0.0.BiR98x.AWVKz4K6hws",
-    "c_user": f"{c_user}",
+    "c_user": f"{os.environ.get('c_user')}",
     "datr": "xasyYs51GC0Lq5H5lvXTl5zA",
-    "xs": f"{xs}"
+    "xs": f"{os.environ.get('xs_value')}"
 }
+
 
 client=ChatBot("",
                 "", session_cookies=cookies)
