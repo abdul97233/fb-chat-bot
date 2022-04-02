@@ -1,10 +1,12 @@
 # NTM-FB-CHAT-BOT
 
+## Getting Started with fb-chat-bot
+
 ### Simple Method 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abdul97233/fb-chat-bot-heroku)
 
-Getting Started with fb-chat-bot
+##
 ![GitHub repo size](https://img.shields.io/github/repo-size/abdul97233/fb-chat-bot-heroku?color=yellow)
 [![Telegram Bot](https://img.shields.io/badge/Telegram-Bot-blue.svg)](https://t.me/f2link_bot)
 ![GitHub](https://img.shields.io/github/license/abdul97233/fb-chat-bot-heroku)
