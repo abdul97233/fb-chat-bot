@@ -8,12 +8,11 @@
 <b>Deploy on Heroku:
 1. Fork This Repo <br>
 2. Click on the button to Deploy and follow steps <br>
-  
 3.then just put your fb cookie XS & C_user id <br>
 
-<h4> So Follow Above Steps 👆 and then deploy other wise bot won't work</h4>
+<h4> So Follow The Above Steps 👆 then deploy otherwise bot won't work</h4>
 
-Press the below button to  deploy on Heroku
+Press the below button to deploy on Heroku.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abdul97233/fb-chat-bot-heroku)
 
@@ -31,9 +30,7 @@ Press the below button to  deploy on Heroku
     <a href="https://github.com/abdul97233/fb-chat-bot-heroku/issues">Request Feature</a>
   </p>
 
-# fb-chat-bot
-
-# IMP UPDATE!!!  
+# IMPORTANT UPDATE!!!  
 ### If u want to work bot even after fb logout.. just follow these steps:  
 ### >> open private/incognito window and login facebook..
 ### >> get cookie editor extension and allow the extension in private/incognito mode
