@@ -1,4 +1,4 @@
-git+https://github.com/abdul97233/demobot@main
+fbchat
 wolframalpha
 requests
 selenium
