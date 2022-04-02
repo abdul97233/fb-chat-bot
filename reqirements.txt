@@ -1,0 +1,5 @@
+git+https://github.com/abdul97233/demobot@main
+wolframalpha
+requests
+selenium
+webdriver_manager
