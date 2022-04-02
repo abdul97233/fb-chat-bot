@@ -1,19 +1,19 @@
 {
     "name": "NTM FB CHAT BOT",
     "logo": "https://telegra.ph//file/1a5f74144e73aa0902c81.jpg",
-    "description": "Bot with many features",
+    "description": "it's now possible to build powerful bots that can interact with people in groups and personal chat.",
     "keywords": [
         "NTMFBCHATBOT",
         "NTM",
-        "FB",
-        "CHAT",
+        "FB-BOT",
+        "CHAT-BOT",
         "BOT",
         "FB",
         "CHAT",
-        "BOT"
+        "NTM-BOT"
     ],
     "repository": "https://github.com/abdul97233/fb-chat-bot-heroku",
-    "website": "T.me/ntmpro",
+    "website": "https://t.me/ntmpro",
     "success_url": "https://t.me/ntmpro",
     "env": {
         "CHROMEDRIVER_PATH": {
