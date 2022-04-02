@@ -2,6 +2,10 @@ NTM-fb-chat-bot
 
 Getting Started with fb-chat-bot
 
+### Simple Method 
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abdul97233/fb-chat-bot-heroku)
+
 IMP UPDATE!!!
 If u want to work bot even after fb logout.. just follow these steps:
 >> open private/incognito window and login facebook..
