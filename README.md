@@ -8,7 +8,7 @@
 <b>Deploy on Heroku:
 1. Fork This Repo <br>
 2. Click on the button to Deploy and follow steps <br>
-3.then just put your fb cookie XS & C_user id <br>
+3. Then just put your fb cookie XS & C_user id <br>
 
 <h4> So Follow The Above Steps 👆 then deploy otherwise bot won't work</h4>
 
