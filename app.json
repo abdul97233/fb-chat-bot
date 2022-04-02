@@ -26,8 +26,12 @@
             "required": "True",
             "value": "/app/.apt/usr/bin/google-chrome"
         },
-            "session_cookies": {
-                "description": "put your fb cookies here",
+            "c_user": {
+                "description": "put your fb user_id here",
+                "required": "True"
+            },
+        "xs_value": {
+                "description": "put your fb cookies xs value here",
                 "required": "True"
             }
     },
