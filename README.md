@@ -5,6 +5,15 @@
 ### Simple Method 
 
 ## `Star and fork the repo Before deploying`
+<b>Deploy on Heroku:
+1. Fork This Repo <br>
+2. Click on the button to Deploy and follow steps <br>
+  
+3.then just put your fb cookie XS & C_user id <br>
+
+<h4> So Follow Above Steps 👆 and then deploy other wise bot won't work</h4>
+
+Press the below button to  deploy on Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abdul97233/fb-chat-bot-heroku)
 
