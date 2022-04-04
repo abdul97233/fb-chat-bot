@@ -30,6 +30,8 @@ Press the below button to deploy on Heroku.
  <a href="https://github.com/abdul97233/fb-chat-bot-heroku/issues">Report a Bug</a>
     |
     <a href="https://github.com/abdul97233/fb-chat-bot-heroku/issues">Request Feature</a>
+    |
+    <a href="https://www.facebook.com/abdul97233">Chat in Facebook</a>
   </p>
 
 # IMPORTANT UPDATE!!!  
@@ -145,4 +147,4 @@ Same goes if they send image and unsend it.. You can view the unsent images imme
 
 - [Rawbeen](https://t.me/abdul97233)
 - [Abdul](https://t.me/abdul97233)
-- [Github](https://github.com/abdul97233)
+- [MY Github](https://github.com/abdul97233)
