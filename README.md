@@ -19,7 +19,7 @@ Press the below button to deploy on Heroku.
     <a href="https://www.python.org">
         <img src="https://img.shields.io/badge/PYTHON-PROJECT-blueviolet?style=for-the-badge&logo=python">
     </a><br>
- </p>
+
 ## [![Video tutorial to Setup bot](https://img.shields.io/badge/Video%20tutorial%20To-Setup-blue)](https://www.mediafire.com/file/tti3ljbcg7dpjgx/5_6217564682559948051.mp4/file?fbclid=IwAR3RzoY-rKy3vc8Qj590dODQGNRC-mBRZvahBZYUYmN4mNa78-Xf3M4A3m8)
  
 ##
