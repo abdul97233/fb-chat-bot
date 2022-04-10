@@ -529,6 +529,12 @@ class ChatBot(Client):
             elif("same to you" in msg):
                 reply="Thank you 😊"
                 sendMsg()
+            elif("Who are you" in msg):
+                reply="I am NTM assistant Bot"
+                sendMsg()
+            elif("bot" in msg):
+                reply="hmm.. I am NTM assistant Bot developed by NTM"
+                sendMsg()
             elif("Welcome" in msg):
                 reply="It's my Pleasure 😊"
                 sendMsg()
