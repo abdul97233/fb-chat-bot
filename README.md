@@ -4,17 +4,62 @@
 
 ### Simple Method 
 
-## `Star and fork the repo Before deploying`
-<b>Deploy on Heroku:
-1. Fork This Repo <br>
-2. Click on the button to Deploy and follow steps <br>
-3. Then just put your fb cookie XS & C_user id <br>
+<details>
+  <summary><b>Deploy On Heroku</b></summary>
+    <p align="left">
+        <br><b><u>This repository cannot be able deploy in heroku due to some reasons.</u></b><br>To deploy this bot in heroku..<br><br>
+        1. Fork this Repository first.<br>
+        2. Click on the button to Deploy and follow steps <br>
+        3. Then just put your fb cookie XS & C_user id <br>
+        2. Finally, deploy it from your own fork.<br><br>
+        Press the below button to deploy on Heroku.<br>
+      <a href="https://heroku.com/deploy?template=https://github.com/abdul97233/fb-chat-bot-heroku" target="_blank">
+        <img height="30px" src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku">
+  </a>
+</p>
+</details>
+<details>
+  <summary><b>Developer</b></summary>
+    <p align="left">
+        <img alt="GPL3" src ="https://c.tenor.com/10Zdx_RXqgcAAAAC/programming-crazy.gif" width="260px" style="max-width:100%;"/><br>
+            <a href="https://t.me/abdul97233"><img src="https://img.shields.io/badge/Abdul-Kalam-orange" height="24">
+        </a>&nbsp;
+            <a href="https://t.me/abdul97233"><img src="https://img.shields.io/badge/Raween-Sah-orange" height="24">
+        </a>&nbsp;
+            <a href="https://t.me/ntmchat"><img src="https://img.shields.io/badge/Updates-Channel-orange" height="24">
+  <a>
+</p>
+</details>
+<details>
+  <summary><b>Documentation</b></summary>
+    <p align="left">
+      <a href="https://fbchat.readthedocs.io/">
+        <img src="https://img.shields.io/badge/Read-Documentation-blueviolet?style=for-the-badge&logo=telegraph">
+    </a>
+</p>
+</details>
+<details>
+  <summary><b>License</b></summary>
+    <p align="left">
+    <a href="https://choosealicense.com/licenses/gpl-3.0/">
+        <img src="https://img.shields.io/badge/License-GPLv3-blueviolet?style=for-the-badge&logo=gplv3">
+    </a>
+</p>
+</details>
+<details>
+  <summary><b>Credits</b></summary>
+    <p align="left">
+      - [Rawbeen](https://t.me/abdul97233)
+      - [Abdul](https://t.me/abdul97233)
+      - [MY Github](https://github.com/abdul97233)
+    </a>
+</p>
+</details>
+
+
 
 <h4> So Follow The Above Steps 👆 then deploy otherwise bot won't work</h4>
 
-Press the below button to deploy on Heroku.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abdul97233/fb-chat-bot-heroku)
   <p align="center">
     <a href="https://www.python.org">
         <img src="https://img.shields.io/badge/PYTHON-PROJECT-blueviolet?style=for-the-badge&logo=python">
@@ -37,6 +82,13 @@ Press the below button to deploy on Heroku.
     |
     <a href="https://www.facebook.com/abdul97233">Chat in Facebook</a>
   </p>
+
+
+
+
+
+
+
 
 # IMPORTANT UPDATE!!!  
 ### If u want to work bot even after fb logout.. just follow these steps:  
