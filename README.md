@@ -22,7 +22,6 @@ Press the below button to deploy on Heroku.
  </p>
   <br>
 ##
-[![Video tutorial to Setup bot](https://img.shields.io/badge/Video%20tutorial%20To-Setup-blue)](https://www.mediafire.com/file/tti3ljbcg7dpjgx/5_6217564682559948051.mp4/file?fbclid=IwAR3RzoY-rKy3vc8Qj590dODQGNRC-mBRZvahBZYUYmN4mNa78-Xf3M4A3m8)
 ![GitHub repo size](https://img.shields.io/github/repo-size/abdul97233/fb-chat-bot-heroku?color=yellow)
 [![Telegram Bot](https://img.shields.io/badge/Telegram-Bot-blue.svg)](https://t.me/f2link_bot)
 ![GitHub](https://img.shields.io/github/license/abdul97233/fb-chat-bot-heroku)
