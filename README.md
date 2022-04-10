@@ -49,9 +49,12 @@
 <details>
   <summary><b>Credits</b></summary>
     <p align="left">
-      - [Rawbeen](https://t.me/abdul97233)
-      - [Abdul](https://t.me/abdul97233)
-      - [MY Github](https://github.com/abdul97233)
+     <a href="https://github.com/abdul97233">
+        <img src="https://img.shields.io/badge/Abdul-Kalam%20-orange?style=for-the-badge&logo=pyrogram">
+     <a href="https://github.com/rawbeen72">
+        <img src="https://img.shields.io/badge/Raween-Sah%20-orange?style=for-the-badge&logo=pyrogram">
+     <a href="https://t.me/abdul97233">
+        <img src="https://img.shields.io/badge/Telegram-Link%20-orange?style=for-the-badge&logo=pyrogram">
     </a>
 </p>
 </details>
