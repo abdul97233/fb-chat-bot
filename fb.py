@@ -306,7 +306,7 @@ class ChatBot(Client):
 
             headers = {
                 'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
-                'x-rapidapi-key': "8cd2881885msh9933f89c5aa2186p1d8076jsn7303d42b3c66"
+                'x-rapidapi-key': "bb489dcbc8msh2fcd95763deae49p1cd2b2jsnd943a63ed5f2"
             }
             response = requests.request(
                 "GET", url, headers=headers, params=querystring)
