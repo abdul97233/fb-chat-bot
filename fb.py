@@ -638,5 +638,5 @@ print(client.isLoggedIn())
 try:
     client.listen()
 except:
-    time.sleep(3)
+    time.sleep(2)
     client.listen()
