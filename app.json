@@ -26,7 +26,9 @@
 		}
 	},
 	"stack": "heroku-20",
-	"buildpacks": ["heroku/ruby", "heroku/python", "heroku/nodejs"],
+	"buildpacks": {
+		"url":["heroku/python"]
+	}
 
 	"formation": {
 		"worker": {
