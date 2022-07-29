@@ -10,38 +10,17 @@ import sqlite3
 import os
 import concurrent.futures
 from difflib import SequenceMatcher, get_close_matches
-# selenium imports
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-options = Options()
-c = DesiredCapabilities.CHROME
-c["pageLoadStrategy"] = "none"
-options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-options.add_argument("--headless")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-sh-usage")
-
-
-driver = webdriver.Chrome(
-    service=Service(os.environ.get("CHROMEDRIVER_PATH")),
-    options=options, desired_capabilities=c)
 
 
 class ChatBot(Client):
 
     def onMessage(self, mid=None, author_id=None, message_object=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
-        time.sleep(1)
         try:
             msg = str(message_object).split(",")[15][14:-1]
+
             if ("//video.xx.fbcdn" in msg):
                 msg = msg
+
             else:
                 msg = str(message_object).split(",")[19][20:-1]
         except:
@@ -100,7 +79,7 @@ class ChatBot(Client):
             response = requests.request(
                 "GET", url, headers=headers, params=querystring)
             data_str = response.text
-            print(data_str)
+
             data = eval(data_str.replace("null", "None"))
             country = data["response"][0]["country"]
             new_cases = data["response"][0]["cases"]["new"]
@@ -128,12 +107,7 @@ class ChatBot(Client):
             pressure = json_data["main"]["pressure"]
             humidity = json_data["main"]["humidity"]
             wind_speed = json_data["wind"]["speed"]
-            print(
-                f"maximum temperature: {max_temp-273.15} *C \nminimum temperature: {min_temp-273.15} *C")
-            print(f"visibilty: {visibility}m")
-            print(f"pressure: {pressure}")
-            print(f"humidity: {humidity}")
-            print(f"wind speed: {wind_speed}m/s")
+
             return(
                 f"The current temperature of {city} is %.1f degree celcius with {description}" % celcius_res)
 
@@ -173,6 +147,7 @@ class ChatBot(Client):
                         answer = answer.replace("sqrt", "√")
 
                         if(thread_type == ThreadType.USER):
+                            f
                             self.sendRemoteFiles(
                                 file_urls=answer, message=None, thread_id=thread_id, thread_type=ThreadType.USER)
                         elif(thread_type == ThreadType.GROUP):
@@ -300,19 +275,18 @@ class ChatBot(Client):
                 pass
             image_urls = []
 
-            url = "https://google-image-search1.p.rapidapi.com/v2/"
+            url = "https://bing-image-search1.p.rapidapi.com/images/search"
 
             querystring = {"q": query, "count": str(count)}
 
             headers = {
-                'x-rapidapi-host': "google-image-search1.p.rapidapi.com",
-                'x-rapidapi-key': "bb489dcbc8msh2fcd95763deae49p1cd2b2jsnd943a63ed5f2"
+                'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
+                'x-rapidapi-key': "55d459414fmsh32c0a06c0e3e34dp1f40a5jsn084fca18f5ea"
             }
             response = requests.request(
                 "GET", url, headers=headers, params=querystring)
             data = json.loads(response.text)
             img_contents = (data["value"])
-            # print(img_contents)
             for img_url in img_contents:
                 image_urls.append(img_url["contentUrl"])
                 print("appended..")
@@ -336,19 +310,18 @@ class ChatBot(Client):
                            "profanityAction": "NoAction", "textType": "plain"}
 
             payload = f'[{{"Text": "{query}"}}]'
-            print("PAYLOAD>>", payload)
+
             headers = {
                 'content-type': "application/json",
                 'x-rapidapi-host': "microsoft-translator-text.p.rapidapi.com",
-                'x-rapidapi-key': "8cd2881885msh9933f89c5aa2186p1d8076jsn7303d42b3c66"
+                'x-rapidapi-key': "55d459414fmsh32c0a06c0e3e34dp1f40a5jsn084fca18f5ea"
             }
 
             response = requests.request(
                 "POST", url, data=payload, headers=headers, params=querystring)
 
             json_response = eval(response.text)
-            print(json_response[0]["translations"][0]["text"])
-            print(json_response)
+
             return json_response[0]["translations"][0]["text"]
 
         def imageSearch(self, msg):
@@ -371,15 +344,12 @@ class ChatBot(Client):
 
             headers = {
                 'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
-                'x-rapidapi-key': "8cd2881885msh9933f89c5aa2186p1d8076jsn7303d42b3c66"
+                'x-rapidapi-key': "55d459414fmsh32c0a06c0e3e34dp1f40a5jsn084fca18f5ea"
             }
-            print("sending requests...")
             response = requests.request(
                 "GET", url, headers=headers, params=querystring)
-            print("got response..")
             data = json.loads(response.text)
             img_contents = (data["value"])
-            # print(img_contents)
             for img_url in img_contents:
                 image_urls.append(img_url["contentUrl"])
                 print("appended..")
@@ -428,47 +398,7 @@ class ChatBot(Client):
         try:
             if("search pdf" in msg):
                 searchFiles(self)
-            elif("check ipo" in msg):
-                query = msg.split()
-                company = " ".join(query[2:-1])
-                if (company.split()[0]) == "of":
-                    company = " ".join(query[3:-1])
-                demat_num = int(query[-1])
-                print("getting url")
-                driver.get("https://iporesult.cdsc.com.np/")
 
-                inp = driver.find_element(By.ID, "boid").send_keys(demat_num)
-
-                companies = []
-                print("finding elements..")
-                company_names = driver.find_element(
-                    By.NAME,  "companyShare").find_elements(By.TAG_NAME, "option")
-                for name in company_names:
-                    companies.append(name.text)
-
-                for full_comapany_name in companies[1:]:
-                    print("inside loop..")
-                    if(company) in full_comapany_name.lower():
-
-                        select = Select(driver.find_element(
-                            By.NAME, 'companyShare'))
-                        select.select_by_visible_text(full_comapany_name)
-                WebDriverWait(driver, 1).until(EC.invisibility_of_element(
-                    (By.CSS_SELECTOR, "p-4.ng-touched.ng-dirty.ng-valid")))
-                driver.execute_script("arguments[0].click();", WebDriverWait(driver, 1).until(
-                    EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn.mt-3.btn-block.w-100"))))
-
-                result = driver.find_element(
-                    By.CSS_SELECTOR, ".text-success.text-center").text
-                if(len(result) == 0):
-                    reply = "Sorry, not alloted for the entered BOID."
-                    print(reply)
-                    self.send(Message(text=reply), thread_id=thread_id,
-                              thread_type=thread_type)
-                else:
-                    reply = result
-                    self.send(Message(text=reply), thread_id=thread_id,
-                              thread_type=thread_type)
             elif("search image" in msg):
                 imageSearch(self, msg)
 
@@ -476,7 +406,7 @@ class ChatBot(Client):
                 programming_solution(self, msg)
             elif("translate" in msg):
                 reply = translator(self, msg, msg.split()[-1])
-                print(reply)
+
                 sendQuery()
             elif "weather of" in msg:
                 indx = msg.index("weather of")
@@ -512,37 +442,7 @@ class ChatBot(Client):
                 except:
                     pass
             elif ("busy" in msg):
-                reply = "Not at all"
-                sendMsg()
-            elif("how are you" in msg):
-                reply="I am good. What's about you?"
-                sendMsg()
-            elif("hlw" in msg):
-                reply="hi"
-                sendMsg()
-            elif("hey" in msg):
-                reply="Hi, how are you?"
-                sendMsg()
-            elif("ok" in msg):
-                reply="🤩"
-                sendMsg()
-            elif("same to you" in msg):
-                reply="Thank you 😊"
-                sendMsg()
-            elif("Who are you" in msg):
-                reply="I am NTM assistant Bot"
-                sendMsg()
-            elif("bot" in msg):
-                reply="hmm.. I am NTM assistant Bot developed by NTM"
-                sendMsg()
-            elif("Welcome" in msg):
-                reply="It's my Pleasure 😊"
-                sendMsg()
-            elif("tq" in msg):
-                reply="Welcome 😊"
-                sendMsg()
-            elif("tqsm" in msg):
-                reply="Welcome 😊"
+                reply = "Nobody is busy. Only things are prioritized."
                 sendMsg()
             elif("help" in msg):
                 reply = "Sure! What should I do?"
@@ -587,29 +487,29 @@ class ChatBot(Client):
                 reply = "🙂😊"
                 sendMsg()
             elif ("bye" in msg):
-                reply = "bye👋 Take care"
+                reply = "bye👋"
                 sendMsg()
-            elif ("good morning" in msg or msg == "gm"):
-                reply = "Good Morning🌅🌺 and Have a nice day."
+            elif ("good morning" in msg):
+                reply = "Good Morning🌅🌺"
                 sendMsg()
             elif ("goodnight" in msg):
-                reply = "Good night🌃🌙 and have a ghost dream"
+                reply = "good night🌃🌙"
                 sendMsg()
             elif ("good night" in msg or msg == "gn"):
-                reply = "good night🌃🌙 and have a ghost dream"
+                reply = "good night🌃🌙"
                 sendMsg()
             elif ("hello" in msg):
                 reply = "Hi"
                 sendMsg()
-            elif ("hello" in msg or "hlo" in msg or "hii" in msg):
+            elif ("hello" in msg or "hlo" in msg):
                 reply = "Hi"
                 sendMsg()
             elif (msg == "hi"):
                 reply = "Hello! How can I help you?"
                 sendMsg()
 
-        except:
-            pass
+        except Exception as e:
+            print(e)
 
         self.markAsDelivered(author_id, thread_id)
 
@@ -680,64 +580,63 @@ class ChatBot(Client):
             except:
                 pass
 
-
     def onColorChange(self, mid=None, author_id=None, new_color=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
-        reply="You changed the theme ✌️😎"
+        reply = "You changed the theme ✌️😎"
         self.send(Message(text=reply), thread_id=thread_id,
                   thread_type=thread_type)
 
     def onEmojiChange(self, mid=None, author_id=None, new_color=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
-        reply="You changed the emoji 😎. Great!"
+        reply = "You changed the emoji 😎. Great!"
         self.send(Message(text=reply), thread_id=thread_id,
                   thread_type=thread_type)
 
     def onImageChange(self, mid=None, author_id=None, new_color=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
-        reply="This image looks nice. 💕🔥"
+        reply = "This image looks nice. 💕🔥"
         self.send(Message(text=reply), thread_id=thread_id,
                   thread_type=thread_type)
 
     def onNicknameChange(self, mid=None, author_id=None, new_nickname=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
-        reply=f"You just changed the nickname to {new_nickname} But why? 😁🤔😶"
+        reply = f"You just changed the nickname to {new_nickname} But why? 😁🤔😶"
         self.send(Message(text=reply), thread_id=thread_id,
                   thread_type=thread_type)
 
     def onReactionRemoved(self, mid=None, author_id=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
-        reply="You just removed reaction from the message."
+        reply = "You just removed reaction from the message."
         self.send(Message(text=reply), thread_id=thread_id,
                   thread_type=thread_type)
 
     def onCallStarted(self, mid=None, caller_id=None, is_video_call=None, thread_id=None, thread_type=None, ts=None, metadata=None, msg=None, ** kwargs):
-        reply="You just started a call 📞🎥"
+        reply = "You just started a call 📞🎥"
         self.send(Message(text=reply), thread_id=thread_id,
                   thread_type=thread_type)
 
     def onCallEnded(self, mid=None, caller_id=None, is_video_call=None, thread_id=None, thread_type=None, ts=None, metadata=None, msg=None, ** kwargs):
-        reply="Bye 👋🙋‍♂️"
+        reply = "Bye 👋🙋‍♂️"
         self.send(Message(text=reply), thread_id=thread_id,
                   thread_type=thread_type)
 
     def onUserJoinedCall(mid=None, joined_id=None, is_video_call=None,
                          thread_id=None, thread_type=None, **kwargs):
-        reply=f"New user with user_id {joined_id} has joined a call"
+        reply = f"New user with user_id {joined_id} has joined a call"
         self.send(Message(text=reply), thread_id=thread_id,
                   thread_type=thread_type)
 
 
 cookies = {
     "sb": "xasyYmAoy1tRpMGYvLxgkHBF",
-    "fr": "0vFCSltfbfGjdnSzW.AWWRdpp80kfgbsfmIZJalTHIYMc.BiR98x.Iu.AAA.0.0.BiR98x.AWVKz4K6hws",
-    "c_user": f"{os.environ.get('c_user')}",
+    "fr": "0NxayJuewRHQ30OX3.AWVJwIYNh0Tt8AJv6kSwDamhkoM.BiMrVd.Iu.AAA.0.0.BiMtVZ.AWXMVaiHrpQ",
+    "c_user": "",
     "datr": "xasyYs51GC0Lq5H5lvXTl5zA",
-    "xs": f"{os.environ.get('xs_value')}"
+    "xs": ""
 }
 
 
-client=ChatBot("",
-                "", session_cookies=cookies)
+client = ChatBot("",
+                 "", session_cookies=cookies)
 print(client.isLoggedIn())
 
 try:
     client.listen()
 except:
-    time.sleep(3)
+    time.sleep(2)
     client.listen()
