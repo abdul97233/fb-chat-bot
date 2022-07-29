@@ -25,7 +25,7 @@
 			"required": "True"
 		}
 	},
-	"stack": "heroku-20",
+	"stack": "heroku-22",
 
 
 	"formation": {
