@@ -72,7 +72,7 @@
  
 ##
 ![GitHub repo size](https://img.shields.io/github/repo-size/abdul97233/fb-chat-bot-heroku?color=yellow)
-[![Telegram Bot](https://img.shields.io/badge/Telegram-Bot-blue.svg)](https://t.me/f2link_bot)
+[![Telegram Bot](https://img.shields.io/badge/Telegram-Bot-blue.svg)](https://t.me/NTMtag)
 ![GitHub](https://img.shields.io/github/license/abdul97233/fb-chat-bot-heroku)
 [![Bot Support](https://img.shields.io/badge/Fb%20Chat%20Bot-support%20group-blue)](https://t.me/ntmchat)
 [![Telegram Channel](https://img.shields.io/badge/Telegram-Channel-blue.svg)](https://t.me/ntmpro)
