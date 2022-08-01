@@ -89,7 +89,7 @@ class ChatBot(Client):
             total_deaths = data["response"][0]["deaths"]["total"]
             total_recovered = data["response"][0]["cases"]["recovered"]
             new_deaths = data["response"][0]["deaths"]["new"]
-            reply = f'new cases: {new_cases}\n new_cases1 = {new_cases.replace("+", "")}\nnew_deaths1 = {new_deaths.replace("+", "")}\nactive cases: {active_cases}\nnew deaths: {new_deaths} total deaths: {total_deaths} \ncritical cases: {critical_cases}\ntotal cases: {total_cases}\ntotal recovered: {total_recovered}'
+            reply = f'Corona Virus Info of {country_name}:\n🥺 New Cases : {new_cases.replace("+", "")}\n😟 New Deaths : {new_deaths.replace("+", "")}\n😔 Active Cases : {active_cases}\n⚰️ Total Deaths: {total_deaths} \n🤕 Critical Cases: {critical_cases}\n💉 Total Cases: {total_cases}\n😊 Total Recovered: {total_recovered}'
             self.send(Message(text=reply), thread_id=thread_id,
                       thread_type=thread_type)
 
