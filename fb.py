@@ -1,3 +1,5 @@
+# (c) NTM
+
 from fbchat import Client, log, _graphql
 from fbchat.models import *
 import json
@@ -17,10 +19,8 @@ class ChatBot(Client):
     def onMessage(self, mid=None, author_id=None, message_object=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
         try:
             msg = str(message_object).split(",")[15][14:-1]
-
-            if ("//video.xx.fbcdn" in msg):
+            if (".mp4" in msg):
                 msg = msg
-
             else:
                 msg = str(message_object).split(",")[19][20:-1]
         except:
@@ -530,7 +530,7 @@ class ChatBot(Client):
                 conn.close()
                 unsent_msg = fetched_msg[0][1]
 
-                if("//video.xx.fbcdn" in unsent_msg):
+                if(".mp4" in unsent_msg):
 
                     if(thread_type == ThreadType.USER):
                         reply = f"You just unsent a video"
