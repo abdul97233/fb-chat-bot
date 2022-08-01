@@ -196,7 +196,7 @@ Same goes if they send image and unsend it.. You can view the unsent images imme
 -> find how many grams of protein in 1 egg  
 -> find number of electrons in sodium  
 -> solve for x if 3x^2-16=9  
--> convert 110110 to decimal  
+-> convert binary 110110 to decimal  
 ..and many more
 
 #### Note: dont forget to provide initial keyword like find, solve, calculate, evaluate, convert etc
