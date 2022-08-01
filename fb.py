@@ -245,11 +245,11 @@ class ChatBot(Client):
                           thread_type=thread_type)
 
         try:
-            def searchForUsers(self, name=" ".join(msg.split()[2:4]), limit=10):
+            def searchForUsers(self, name=" ".join(msg.split()[2:4]), limit=5):
                 try:
                     limit = int(msg.split()[4])
                 except:
-                    limit = 10
+                    limit = 5
                 params = {"search": name, "limit": limit}
                 (j,) = self.graphql_requests(
                     _graphql.from_query(_graphql.SEARCH_USER, params))
@@ -328,7 +328,7 @@ class ChatBot(Client):
             try:
                 count = int(msg.split()[-1])
             except:
-                count = 10
+                count = 5
             query = " ".join(msg.split()[2:])
             try:
                 x = int(query.split()[-1])
@@ -383,7 +383,7 @@ class ChatBot(Client):
             response = json.loads(response.text)
             file_contents = response["files_found"]
             try:
-                for file in random.sample(file_contents, 10):
+                for file in random.sample(file_contents, 5):
                     file_url = file["file_link"]
                     file_name = file["file_name"]
                     self.send(Message(text=f'{file_name}\n Link: {file_url}'),
