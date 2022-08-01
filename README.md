@@ -156,9 +156,9 @@ returns stepwise solution of queries
 returns 10 images by default if number not specified  
 Example:  
 -> search image laptop  
-returns 10 images of laptop  
--> search image laptop 5  
 returns 5 images of laptop  
+-> search image laptop 10  
+returns 10 images of laptop  
 
 #### Search PDFs
 (same syntax as image search)  
