@@ -81,7 +81,7 @@ class ChatBot(Client):
             data_str = response.text
 
             data = eval(data_str.replace("null", "None"))
-            country = data["response"][0]["country"]
+            country_name = data["response"][0]["country"]
             new_cases = data["response"][0]["cases"]["new"]
             active_cases = data["response"][0]["cases"]["active"]
             total_cases = data["response"][0]["cases"]["total"]
