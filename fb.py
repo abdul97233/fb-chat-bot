@@ -289,7 +289,6 @@ class ChatBot(Client):
             img_contents = (data["value"])
             for img_url in img_contents:
                 image_urls.append(img_url["contentUrl"])
-                print("appended..")
 
             def multiThreadImg(img_url):
                 if(thread_type == ThreadType.USER):
