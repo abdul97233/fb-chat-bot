@@ -1,4 +1,4 @@
-# NTM-FB-CHAT-BOT
+# FB-CHAT-BOT
 
 ## Getting Started with fb-chat-bot
 
@@ -7,7 +7,7 @@
 <details>
   <summary><b>Deploy On Heroku</b></summary>
     <p align="left">
-        <br><b><u>This repository cannot be able deploy in heroku due to some reasons.</u></b><br>To deploy this bot in heroku..<br><br>
+        <br><b><u>This repository can not able to deploy on heroku due to some reasons.</u></b><br>To deploy this bot in heroku..<br><br>
         1. Fork this Repository first.<br>
         2. Click on the button to Deploy and follow steps <br>
         3. Then just put your fb cookie XS & C_user id <br>
@@ -68,7 +68,7 @@
         <img src="https://img.shields.io/badge/PYTHON-PROJECT-blueviolet?style=for-the-badge&logo=python">
     </a><br>
 
-## [![Video tutorial to Setup bot](https://img.shields.io/badge/Video%20tutorial%20To-Setup-blue)](https://www.mediafire.com/file/tti3ljbcg7dpjgx/5_6217564682559948051.mp4/file?fbclid=IwAR3RzoY-rKy3vc8Qj590dODQGNRC-mBRZvahBZYUYmN4mNa78-Xf3M4A3m8)
+## [![Video tutorial to Setup bot](https://img.shields.io/badge/Video%20tutorial%20To-Setup-blue)](https://youtu.be/1QRGDIqNlME)
  
 ##
 ![GitHub repo size](https://img.shields.io/github/repo-size/abdul97233/fb-chat-bot-heroku?color=yellow)
