@@ -10,6 +10,7 @@ import time
 import math
 import sqlite3
 import os
+import openai
 import concurrent.futures
 from difflib import SequenceMatcher, get_close_matches
 
@@ -393,10 +394,30 @@ class ChatBot(Client):
                     file_name = file["file_name"]
                     self.send(Message(text=f'{file_name}\n Link: {file_url}'),
                               thread_id=thread_id, thread_type=ThreadType.USER)
+        def chatGPT(self, query):
+            openai.api_key = "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"
 
+            response = openai.Completion.create(
+                model="text-davinci-003",
+                prompt=query,
+                temperature=0.15,
+                max_tokens=3000,
+                top_p=1.0,
+                frequency_penalty=0.0,
+                presence_penalty=0
+            )
+            return (response["choices"][0]["text"])
+       
         try:
-            if("search pdf" in msg):
+
+            if ("search pdf" in msg):
                 searchFiles(self)
+            elif ("chatgpt" in msg):
+                if ("From NTM Bot:" in msg):
+                    return
+                query = " ".join(msg.split(" ")[1:])
+                reply = "From ChatGPT:\t"+chatGPT(self, query)
+                sendQuery()
 
             elif("search image" in msg):
                 imageSearch(self, msg)
