@@ -395,7 +395,7 @@ class ChatBot(Client):
                     self.send(Message(text=f'{file_name}\n Link: {file_url}'),
                               thread_id=thread_id, thread_type=ThreadType.USER)
         def chatGPT(self, query):
-            openai.api_key = "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"
+            openai.api_key = "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"
 
             response = openai.Completion.create(
                 model="text-davinci-003",
