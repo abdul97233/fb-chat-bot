@@ -397,7 +397,7 @@ class ChatBot(Client):
                               thread_id=thread_id, thread_type=ThreadType.USER)
       
         def chatGPT(self, query):
-            openai.api_key = f"{os.environ.get('open_ai')}",
+            openai.api_key = {f"{os.environ.get(openai)}"}
 
             response = openai.Completion.create(
                 model="text-davinci-003",
