@@ -9,6 +9,7 @@ import requests
 import time
 import math
 import sqlite3
+from bs4 import BeautifulSoup
 import os
 import openai
 import concurrent.futures
@@ -394,8 +395,9 @@ class ChatBot(Client):
                     file_name = file["file_name"]
                     self.send(Message(text=f'{file_name}\n Link: {file_url}'),
                               thread_id=thread_id, thread_type=ThreadType.USER)
+      
         def chatGPT(self, query):
-            openai.api_key = "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"
+            openai.api_key = f"{os.environ.get('open_ai')}",
 
             response = openai.Completion.create(
                 model="text-davinci-003",
