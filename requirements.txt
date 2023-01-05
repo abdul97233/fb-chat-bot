@@ -1,4 +1,5 @@
 git+https://github.com/abdul97233/demobot@main
 wolframalpha
 requests
-
+bs4
+openai
