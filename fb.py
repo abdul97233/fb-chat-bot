@@ -1,5 +1,3 @@
-# (c) NTM
-
 from fbchat import Client, log, _graphql
 from fbchat.models import *
 import json
@@ -16,21 +14,25 @@ import concurrent.futures
 from difflib import SequenceMatcher, get_close_matches
 
 
+
 class ChatBot(Client):
 
     def onMessage(self, mid=None, author_id=None, message_object=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
         try:
             msg = str(message_object).split(",")[15][14:-1]
-            if (".mp4" in msg):
+            print(msg)
+
+            if ("//video.xx.fbcdn" in msg):
                 msg = msg
+
             else:
                 msg = str(message_object).split(",")[19][20:-1]
         except:
             try:
                 msg = (message_object.text).lower()
+                print(msg)
             except:
                 pass
-
         def sendMsg():
             if (author_id != self.uid):
                 self.send(Message(text=reply), thread_id=thread_id,
@@ -74,7 +76,7 @@ class ChatBot(Client):
             querystring = {"country": country_name, "day": yesterday}
 
             headers = {
-                'x-rapidapi-key': "8cd2881885msh9933f89c5aa2186p1d8076jsn7303d42b3c66",
+                'x-rapidapi-key': "801ba934d6mshf6d2ea2be5a6a40p188cbejsn09635ee54c45",
                 'x-rapidapi-host': "covid-193.p.rapidapi.com"
             }
 
@@ -83,7 +85,7 @@ class ChatBot(Client):
             data_str = response.text
 
             data = eval(data_str.replace("null", "None"))
-            country_name = data["response"][0]["country"]
+            country = data["response"][0]["country"]
             new_cases = data["response"][0]["cases"]["new"]
             active_cases = data["response"][0]["cases"]["active"]
             total_cases = data["response"][0]["cases"]["total"]
@@ -91,7 +93,7 @@ class ChatBot(Client):
             total_deaths = data["response"][0]["deaths"]["total"]
             total_recovered = data["response"][0]["cases"]["recovered"]
             new_deaths = data["response"][0]["deaths"]["new"]
-            reply = f'Corona Virus Info of {country_name}:\n🥺 New Cases : {new_cases.replace("+", "")}\n😟 New Deaths : {new_deaths.replace("+", "")}\n😔 Active Cases : {active_cases}\n⚰️ Total Deaths: {total_deaths} \n🤕 Critical Cases: {critical_cases}\n💉 Total Cases: {total_cases}\n😊 Total Recovered: {total_recovered}'
+            reply = f'new cases: {new_cases}\n new_cases1 = {new_cases.replace("+", "")}\nnew_deaths1 = {new_deaths.replace("+", "")}\nactive cases: {active_cases}\nnew deaths: {new_deaths} total deaths: {total_deaths} \ncritical cases: {critical_cases}\ntotal cases: {total_cases}\ntotal recovered: {total_recovered}'
             self.send(Message(text=reply), thread_id=thread_id,
                       thread_type=thread_type)
 
@@ -247,11 +249,11 @@ class ChatBot(Client):
                           thread_type=thread_type)
 
         try:
-            def searchForUsers(self, name=" ".join(msg.split()[2:4]), limit=5):
+            def searchForUsers(self, name=" ".join(msg.split()[2:4]), limit=10):
                 try:
                     limit = int(msg.split()[4])
                 except:
-                    limit = 5
+                    limit = 10
                 params = {"search": name, "limit": limit}
                 (j,) = self.graphql_requests(
                     _graphql.from_query(_graphql.SEARCH_USER, params))
@@ -283,14 +285,16 @@ class ChatBot(Client):
 
             headers = {
                 'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
-                'x-rapidapi-key': "55d459414fmsh32c0a06c0e3e34dp1f40a5jsn084fca18f5ea"
+                'x-rapidapi-key': "801ba934d6mshf6d2ea2be5a6a40p188cbejsn09635ee54c45"
             }
             response = requests.request(
                 "GET", url, headers=headers, params=querystring)
             data = json.loads(response.text)
             img_contents = (data["value"])
+            # print(img_contents)
             for img_url in img_contents:
                 image_urls.append(img_url["contentUrl"])
+                print("appended..")
 
             def multiThreadImg(img_url):
                 if(thread_type == ThreadType.USER):
@@ -315,7 +319,7 @@ class ChatBot(Client):
             headers = {
                 'content-type': "application/json",
                 'x-rapidapi-host': "microsoft-translator-text.p.rapidapi.com",
-                'x-rapidapi-key': "55d459414fmsh32c0a06c0e3e34dp1f40a5jsn084fca18f5ea"
+                'x-rapidapi-key': "801ba934d6mshf6d2ea2be5a6a40p188cbejsn09635ee54c45"
             }
 
             response = requests.request(
@@ -329,7 +333,7 @@ class ChatBot(Client):
             try:
                 count = int(msg.split()[-1])
             except:
-                count = 5
+                count = 10
             query = " ".join(msg.split()[2:])
             try:
                 x = int(query.split()[-1])
@@ -345,12 +349,15 @@ class ChatBot(Client):
 
             headers = {
                 'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
-                'x-rapidapi-key': "55d459414fmsh32c0a06c0e3e34dp1f40a5jsn084fca18f5ea"
+                'x-rapidapi-key': "801ba934d6mshf6d2ea2be5a6a40p188cbejsn09635ee54c45"
             }
+            print("sending requests...")
             response = requests.request(
                 "GET", url, headers=headers, params=querystring)
+            print("got response..")
             data = json.loads(response.text)
             img_contents = (data["value"])
+            # print(img_contents)
             for img_url in img_contents:
                 image_urls.append(img_url["contentUrl"])
                 print("appended..")
@@ -375,7 +382,7 @@ class ChatBot(Client):
 
             headers = {
                 'x-rapidapi-host': "filepursuit.p.rapidapi.com",
-                'x-rapidapi-key': "8cd2881885msh9933f89c5aa2186p1d8076jsn7303d42b3c66"
+                'x-rapidapi-key': "801ba934d6mshf6d2ea2be5a6a40p188cbejsn09635ee54c45"
             }
 
             response = requests.request(
@@ -384,7 +391,7 @@ class ChatBot(Client):
             response = json.loads(response.text)
             file_contents = response["files_found"]
             try:
-                for file in random.sample(file_contents, 5):
+                for file in random.sample(file_contents, 10):
                     file_url = file["file_link"]
                     file_name = file["file_name"]
                     self.send(Message(text=f'{file_name}\n Link: {file_url}'),
@@ -395,14 +402,14 @@ class ChatBot(Client):
                     file_name = file["file_name"]
                     self.send(Message(text=f'{file_name}\n Link: {file_url}'),
                               thread_id=thread_id, thread_type=ThreadType.USER)
-      
+
         def chatGPT(self, query):
-            openai.api_key = "{os.environ.get('openai')}"
+            openai.api_key = "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"
 
             response = openai.Completion.create(
                 model="text-davinci-003",
                 prompt=query,
-                temperature=0.15,
+                temperature=0.3,
                 max_tokens=3000,
                 top_p=1.0,
                 frequency_penalty=0.0,
@@ -415,12 +422,37 @@ class ChatBot(Client):
             if ("search pdf" in msg):
                 searchFiles(self)
             elif ("chatgpt" in msg):
-                if ("From NTM Bot:" in msg):
+                if ("from chatgpt:" in msg):
                     return
                 query = " ".join(msg.split(" ")[1:])
                 reply = "From ChatGPT:\t"+chatGPT(self, query)
                 sendQuery()
 
+            elif("download youtube" in msg):
+                headers = {
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+                link = "".join(msg.split()[-3:])
+                yt_url = link
+                print("yt", yt_url)
+                try:
+                    yt_url = yt_url.replace(
+                        "youtu.be/", "www.youtube.com/watch?v=")
+                except:
+                    pass
+                yt_url = yt_url.replace("youtube", "clipmega")
+                url = requests.get(yt_url, headers=headers)
+                soup = BeautifulSoup(url.text, "html.parser")
+                link = soup.select(".btn-group > a")
+                link = link[0]
+                link = str(link)
+                indx = link.find("href=")
+                indx_l = link.find("extension=mp4")
+                link = link[indx+6:indx_l+13].replace("amp;", "")
+                link = link.replace(" ", "%20")
+                final_link = link
+                print("final", final_link)
+                self.sendRemoteFiles(
+                    file_urls=final_link, message=None, thread_id=thread_id, thread_type=thread_type)
             elif("search image" in msg):
                 imageSearch(self, msg)
 
@@ -464,37 +496,7 @@ class ChatBot(Client):
                 except:
                     pass
             elif ("busy" in msg):
-                reply = "Not at all"
-                sendMsg()
-            elif("how are you" in msg):
-                reply="I am good. What's about you?"
-                sendMsg()
-            elif("hlw" in msg):
-                reply="hi"
-                sendMsg()
-            elif("hey" in msg):
-                reply="Hi, how are you?"
-                sendMsg()
-            elif("ok" in msg):
-                reply="🤩"
-                sendMsg()
-            elif("same to you" in msg):
-                reply="Thank you 😊"
-                sendMsg()
-            elif("Who are you" in msg):
-                reply="I am NTM assistant Chat Bot"
-                sendMsg()
-            elif("bot" in msg):
-                reply="hmm.. I am NTM assistant Bot developed by NTM"
-                sendMsg()
-            elif("Welcome" in msg):
-                reply="It's my Pleasure 😊"
-                sendMsg()
-            elif("tq" in msg):
-                reply="Welcome 😊"
-                sendMsg()
-            elif("tqsm" in msg):
-                reply="Welcome 😊"
+                reply = "Nobody is busy. Only things are prioritized."
                 sendMsg()
             elif("help" in msg):
                 reply = "Sure! What should I do?"
@@ -539,31 +541,25 @@ class ChatBot(Client):
                 reply = "🙂😊"
                 sendMsg()
             elif ("bye" in msg):
-                reply = "bye👋 Take care"
+                reply = "bye👋"
                 sendMsg()
             elif ("good morning" in msg):
-                reply = "Good Morning🌅🌺 and Have a nice day."
+                reply = "Good Morning🌅🌺"
                 sendMsg()
             elif ("goodnight" in msg):
-                reply = "Good night🌃🌙 and have a ghost dream"
+                reply = "good night🌃🌙"
                 sendMsg()
-            elif ("good night" in msg):
-                reply = "good night🌃🌙 and have a ghost dream"
+            elif ("good night" in msg or msg == "gn"):
+                reply = "good night🌃🌙"
                 sendMsg()
             elif ("hello" in msg):
                 reply = "Hi"
                 sendMsg()
-            elif ("hello" in msg or "hlo" in msg or "hii" in msg):
+            elif ("hello" in msg or "hlo" in msg):
                 reply = "Hi"
                 sendMsg()
             elif (msg == "hi"):
                 reply = "Hello! How can I help you?"
-                sendMsg()
-            elif ("gm" in msg):
-                reply = "Good Morning🌅🌺 and Have a nice day."
-                sendMsg()
-            elif ("gn" in msg):
-                reply = "Good night🌃🌙 and Have a ghost dream"
                 sendMsg()
 
         except Exception as e:
@@ -578,6 +574,7 @@ class ChatBot(Client):
         else:
             try:
                 conn = sqlite3.connect("messages.db")
+                print("connected")
                 c = conn.cursor()
                 c.execute("""
                 SELECT * FROM "{}" WHERE mid = "{}"
@@ -588,7 +585,7 @@ class ChatBot(Client):
                 conn.close()
                 unsent_msg = fetched_msg[0][1]
 
-                if(".mp4" in unsent_msg):
+                if("//video.xx.fbcdn" in unsent_msg):
 
                     if(thread_type == ThreadType.USER):
                         reply = f"You just unsent a video"
@@ -658,10 +655,10 @@ class ChatBot(Client):
         self.send(Message(text=reply), thread_id=thread_id,
                   thread_type=thread_type)
 
-    def onReactionRemoved(self, mid=None, author_id=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
-        reply = "You just removed reaction from the message."
-        self.send(Message(text=reply), thread_id=thread_id,
-                  thread_type=thread_type)
+    # def onReactionRemoved(self, mid=None, author_id=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
+    #     reply = "You just removed reaction from the message."
+    #     self.send(Message(text=reply), thread_id=thread_id,
+    #               thread_type=thread_type)
 
     def onCallStarted(self, mid=None, caller_id=None, is_video_call=None, thread_id=None, thread_type=None, ts=None, metadata=None, msg=None, ** kwargs):
         reply = "You just started a call 📞🎥"
@@ -681,11 +678,11 @@ class ChatBot(Client):
 
 
 cookies = {
-    "sb": "tnPnYtHzL9uXRCjn0_8zJAqh",
-    "fr": "0X9BuQv9646cIJkKs.AWUtLZijIdO2dlXbGnkD95sab5g.Bi53fP.gO.AAA.0.0.Bi53fP.AWVeAki8YoM",
-    "c_user": f"{os.environ.get('c_user')}",
-    "datr": "tnPnYo86eQ5KGjcRmeLJP1VC",
-    "xs": f"{os.environ.get('xs_value')}" 
+    "sb": "xasyYmAoy1tRpMGYvLxgkHBF",
+    "fr": "0NxayJuewRHQ30OX3.AWVJwIYNh0Tt8AJv6kSwDamhkoM.BiMrVd.Iu.AAA.0.0.BiMtVZ.AWXMVaiHrpQ",
+    "c_user": "",
+    "datr": "xasyYs51GC0Lq5H5lvXTl5zA",
+    "xs": ""
 }
 
 
@@ -696,5 +693,5 @@ print(client.isLoggedIn())
 try:
     client.listen()
 except:
-    time.sleep(2)
+    time.sleep(3)
     client.listen()
