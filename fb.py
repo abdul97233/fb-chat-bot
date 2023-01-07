@@ -21,16 +21,19 @@ class ChatBot(Client):
     def onMessage(self, mid=None, author_id=None, message_object=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
         try:
             msg = str(message_object).split(",")[15][14:-1]
-            if (".mp4" in msg):
+            print(msg)
+
+            if ("//video.xx.fbcdn" in msg):
                 msg = msg
+
             else:
                 msg = str(message_object).split(",")[19][20:-1]
         except:
             try:
                 msg = (message_object.text).lower()
+                print(msg)
             except:
                 pass
-
         def sendMsg():
             if (author_id != self.uid):
                 self.send(Message(text=reply), thread_id=thread_id,
@@ -62,6 +65,7 @@ class ChatBot(Client):
                 conn.close()
             except:
                 pass
+
 
         def corona_details(country_name):
             from datetime import date, timedelta
@@ -415,7 +419,7 @@ class ChatBot(Client):
             if ("search pdf" in msg):
                 searchFiles(self)
             elif ("chatgpt" in msg):
-                if ("From NTM Bot:" in msg):
+                if ("from chatgpt:" in msg):
                     return
                 query = " ".join(msg.split(" ")[1:])
                 reply = "From ChatGPT:\t"+chatGPT(self, query)
@@ -578,6 +582,7 @@ class ChatBot(Client):
         else:
             try:
                 conn = sqlite3.connect("messages.db")
+                print("connected")
                 c = conn.cursor()
                 c.execute("""
                 SELECT * FROM "{}" WHERE mid = "{}"
@@ -588,7 +593,7 @@ class ChatBot(Client):
                 conn.close()
                 unsent_msg = fetched_msg[0][1]
 
-                if(".mp4" in unsent_msg):
+                if("//video.xx.fbcdn" in unsent_msg):
 
                     if(thread_type == ThreadType.USER):
                         reply = f"You just unsent a video"
@@ -655,11 +660,6 @@ class ChatBot(Client):
 
     def onNicknameChange(self, mid=None, author_id=None, new_nickname=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
         reply = f"You just changed the nickname to {new_nickname} But why? 😁🤔😶"
-        self.send(Message(text=reply), thread_id=thread_id,
-                  thread_type=thread_type)
-
-    def onReactionRemoved(self, mid=None, author_id=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
-        reply = "You just removed reaction from the message."
         self.send(Message(text=reply), thread_id=thread_id,
                   thread_type=thread_type)
 
