@@ -418,11 +418,11 @@ class ChatBot(Client):
 
             if ("search pdf" in msg):
                 searchFiles(self)
-            elif ("chatgpt" in msg):
-                if ("from chatgpt:" in msg):
+            elif ("ntm" in msg):
+                if ("from ntm bot:" in msg):
                     return
                 query = " ".join(msg.split(" ")[1:])
-                reply = "From ChatGPT:\t"+chatGPT(self, query)
+                reply = "From NTM Bot:\t"+chatGPT(self, query)
                 sendQuery()
 
             elif("search image" in msg):
