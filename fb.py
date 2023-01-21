@@ -1,4 +1,4 @@
-# (c) NTM 2014-2023
+# (c) NTM
 
 from fbchat import Client, log, _graphql
 from fbchat.models import *
@@ -413,11 +413,7 @@ class ChatBot(Client):
                 presence_penalty=0
             )
             return (response["choices"][0]["text"])
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 99e0edb303c7d4f7cd9757ed834edf9cebbb04e8
         def grammar(self, query):
             openai.api_key = f"{os.environ.get('openai')}"
 
