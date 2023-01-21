@@ -1,4 +1,4 @@
-# (c) NTM
+# (c) NTM 2014-2023
 
 from fbchat import Client, log, _graphql
 from fbchat.models import *
@@ -413,6 +413,20 @@ class ChatBot(Client):
                 presence_penalty=0
             )
             return (response["choices"][0]["text"])
+
+        def grammar(self, query):
+            openai.api_key = f"{os.environ.get('openai')}"
+
+            response = openai.Completion.create(
+                model="text-davinci-003",
+                prompt="Correct this to standard English:\n"+query,
+                temperature=0,
+                max_tokens=60,
+                top_p=1.0,
+                frequency_penalty=0.0,
+                presence_penalty=0.0
+            )
+            return (response["choices"][0]["text"])
        
         try:
 
@@ -423,6 +437,10 @@ class ChatBot(Client):
                     return
                 query = " ".join(msg.split(" ")[1:])
                 reply = "From NTM Bot:\t"+chatGPT(self, query)
+                sendQuery()
+            elif ("grammar" in msg):
+                query = " ".join(msg.split(" ")[1:])
+                reply = "Here is your Corrected answer:\t"+grammar(self, query)
                 sendQuery()
 
             elif("search image" in msg):
