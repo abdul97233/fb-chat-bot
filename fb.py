@@ -432,7 +432,7 @@ class ChatBot(Client):
 
             if ("search pdf" in msg):
                 searchFiles(self)
-            elif ("ritik" in msg):
+            elif ("ntm" in msg):
                 if ("from ntm bot:" in msg):
                     return
                 query = " ".join(msg.split(" ")[1:])
