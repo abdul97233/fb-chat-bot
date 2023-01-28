@@ -23,7 +23,7 @@ class ChatBot(Client):
             msg = str(message_object).split(",")[15][14:-1]
             print(msg)
 
-            if ("//video.xx.fbcdn" in msg):
+            if (".mp4" in msg):
                 msg = msg
 
             else:
@@ -611,7 +611,7 @@ class ChatBot(Client):
                 conn.close()
                 unsent_msg = fetched_msg[0][1]
 
-                if("//video.xx.fbcdn" in unsent_msg):
+                if(".mp4" in unsent_msg):
 
                     if(thread_type == ThreadType.USER):
                         reply = f"You just unsent a video"
